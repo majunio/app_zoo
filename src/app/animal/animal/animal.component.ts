@@ -6,6 +6,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { QuizComponent } from 'src/app/quiz/quiz.component';
 
 
 
@@ -105,8 +106,8 @@ export class AnimalComponent {
         this.toastr.error('Animal with such name already exists!');
       }
     })
-
   }
+  
   public onDeleteAnimal(animalId: number): void {
     this.animalService.deleteAnimal(animalId).subscribe({
       next: (response: void) => {
@@ -137,6 +138,12 @@ export class AnimalComponent {
       // this.toastr.warning('Animal name starting with such letters does not exists!');
       this.getAnimals();
     }
+  }
+
+  zeroStatics(): void 
+  {
+    QuizComponent.counterGlobal = 0;
+    QuizComponent.score = 0;
   }
 
 }

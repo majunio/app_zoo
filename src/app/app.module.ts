@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AnimalService } from './service/animal.service';
+import { LoginService } from 'src/app/service/login.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,//do logowania
     AppRoutingModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     AgmCoreModule.forRoot({

@@ -21,7 +21,7 @@
   <div class="card-body row">
      <div class="col-6">
         <!-- sprawdza czy powyżej wymieniony pracownik istnieje -->
-        <a href=""><img src="{{animal?.imageUrl}}" alt="" routerLink="head" class="img-fluid rounded-circle w-160"></a>
+        <a href=""><img src="{{animal?.imageUrl}}" alt="No photo" routerLink="head" class="img-fluid rounded-circle w-160"></a>
      </div>
      <div class="col-6 card-title align-self-center mb-0">
         <h5>{{animal?.name}}</h5>
@@ -35,10 +35,10 @@
                  <!-- class="fa fa-envelope float-right" dodaje ikone  -->
      <li class="list-group-item"><i class="fa fa-globe float-right"></i>{{animal?.regionOfOrigin}}</li>
      <!-- Nr telefonu w karcie -->
-     <li class="list-group-item"><i class="fa fa-heart float-right"></i>Endangered : {{animal?.endangered}}</li>
+     <li class="list-group-item"><i class="fa fa-heart float-right"></i>{{animal?.endangered}}</li>
   </ul>
   <div class="card-body">
-   <b><p class="float-left" routerLink="/quiz/{{animal.id}}"><u> Quiz!</u></p></b>
+   <b><p class="float-left" (click)="zeroStatics()" routerLink="/quiz/{{animal.id}}"><u> Quiz!</u></p></b>
      <div class="float-right btn-group btn-group-sm">
         <!-- Jedna funkcja otwierająca wszystkie karty -->
         <!-- dzieki stworzeniu karty kadego pracownika moge sie do niego odnieśc -->
@@ -50,8 +50,9 @@
   </div>
 </div>
 </div>
+
 <div id="footer">
-<p><b>Znajdź nas! Czekamy na Ciebie! :)</b></p>
+<p><b>Find us, we are waiting for you! :)</b></p>
 <agm-map [latitude]="lat" [longitude]="lng">
 <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
 </agm-map>
@@ -59,7 +60,7 @@
 </div>
 
 
-<!-- Add Employee Modal -->
+<!-- Add Animal Modal -->
 <div class="modal fade" id="addAnimalModal" tabindex="-1" role="dialog" aria-labelledby="addAnimalModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

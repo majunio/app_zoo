@@ -3,14 +3,14 @@
     <h1 style="color: blue; ">User Login</h1>
     <!-- manipuluje dlugoscia pól -->
     <!-- <form class="col-5"> -->
-    <form>
+    <form (ngSubmit)="userLogin()">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nick Name</label>
-            <input type="text" class="form-control" id="" name="" placeholder="name@example.com">
+            <input type="text" [(ngModel)]="user.login" class="form-control" id="login" name="login" placeholder="name@example.com">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="" name="" placeholder="Password">
+            <input type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password" placeholder="Password">
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>

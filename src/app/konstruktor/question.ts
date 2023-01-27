@@ -5,5 +5,5 @@ export interface Question{
     answer1: string;
     answer2: string;
     imageUrl: string;
-    correctAnswer: string;
+    correctAnswer: number;
 }

@@ -1,7 +1,10 @@
-<ul>
-    <li *ngFor="let question of questions">
-        <span >{{question.question}}</span>
-        <button>{{question.answer1}}</button>
-        <button>{{question.answer2}}</button>
+<div class="quiz">
+    <p><b>Check your knowledge! Good luck!</b> </p>
+    <ul>
+    <li class="question" style="color:darkblue">
+        <h1>{{questions[counter].question}}</h1>
+        <button class="answer" (click)="checkAnswer(questions[counter].answer1, questions[counter].id)">{{questions[counter].answer1}}</button>
+        <button class="answer" (click)="checkAnswer(questions[counter].answer2, questions[counter].id)">{{questions[counter].answer2}}</button>
     </li>
-</ul>
+    </ul>
+</div>

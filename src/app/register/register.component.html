@@ -1,1 +1,36 @@
-<p>register works!</p>
+
+<div class="container col-md-6">
+    <h1 style="color: blue; ">User Login</h1>
+    <!-- manipuluje dlugoscia pól -->
+    <!-- <form class="col-5"> -->
+    <form (ngSubmit)="userAdd()">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nick Name</label>
+            <input type="text" [(ngModel)]="user.login" class="form-control" id="login" name="login" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Password</label>
+            <input type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>
+
+<!-- <div class="container col-md-6" id="addUserModal">
+    <h1 style="color: blue; ">Registration</h1>
+        <form #addFormUser="ngForm">
+            <div class="form-group">
+                <label for="login" >Nick Name</label>
+                <input type="text" ngModel name="login" class="form-control" id="login" placeholder="name@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password" >Password</label>
+
+                <input type="text" ngModel name="password" class="form-control" id="password" placeholder="Password" required>
+            </div>
+            <button (click)="onUserAdd(addFormUser.value)" data-dismiss="modal" class="btn btn-primary" >Register</button>
+
+            <button (click)="onOpenModal('add')" [disabled]="addFormUser.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+         </form>
+</div> -->
+ <!-- <input type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password" placeholder="Password"> -->
