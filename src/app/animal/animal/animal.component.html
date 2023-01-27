@@ -1,0 +1,212 @@
+
+
+
+<div id="element1">
+    <button (click)="onOpenModal('add')" id="addButton">Add Animal </button>
+
+
+</div>
+
+<div id="element2"> 
+       <form class="form-inline my-2 my-lg-0">
+    <input type="search" (ngModelChange)="searchAnimals(key.value)" #key="ngModel" ngModel
+        name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search animals..." required>
+</form></div>   
+
+<div class="row">
+
+    <!-- Tworzy kartę dla kazdego pracownika z bazy -->
+<div *ngFor="let animal of animals" class="col-md-6 col-xl-3">
+<div class="card m-b-30">
+  <div class="card-body row">
+     <div class="col-6">
+        <!-- sprawdza czy powyżej wymieniony pracownik istnieje -->
+        <a href=""><img src="{{animal?.imageUrl}}" alt="" routerLink="head" class="img-fluid rounded-circle w-160"></a>
+     </div>
+     <div class="col-6 card-title align-self-center mb-0">
+        <h5>{{animal?.name}}</h5>
+                     <!-- tytuł pracy w karcie -->
+                     <!-- p zmniejsza czcionke -->
+        <p class="m-0">{{animal?.latinName}}</p>
+     </div>
+  </div>
+  <ul class="list-group list-group-flush">
+                 <!--  w karcie -->
+                 <!-- class="fa fa-envelope float-right" dodaje ikone  -->
+     <li class="list-group-item"><i class="fa fa-globe float-right"></i>{{animal?.regionOfOrigin}}</li>
+     <!-- Nr telefonu w karcie -->
+     <li class="list-group-item"><i class="fa fa-heart float-right"></i>Endangered : {{animal?.endangered}}</li>
+  </ul>
+  <div class="card-body">
+   <b><p class="float-left" routerLink="/quiz/{{animal.id}}"><u> Quiz!</u></p></b>
+     <div class="float-right btn-group btn-group-sm">
+        <!-- Jedna funkcja otwierająca wszystkie karty -->
+        <!-- dzieki stworzeniu karty kadego pracownika moge sie do niego odnieśc -->
+        <!-- przycisk edycji -->
+        <a (click)="onOpenModal('edit', animal)" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+       <!-- przycisk usuwania -->
+        <a (click)="onOpenModal('delete', animal)" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+     </div>
+  </div>
+</div>
+</div>
+<div id="footer">
+<p><b>Znajdź nas! Czekamy na Ciebie! :)</b></p>
+<agm-map [latitude]="lat" [longitude]="lng">
+<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+</div>
+</div>
+
+
+<!-- Add Employee Modal -->
+<div class="modal fade" id="addAnimalModal" tabindex="-1" role="dialog" aria-labelledby="addAnimalModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="addAnimalModalLabel">Add Animal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddAnimal(addForm)">
+            <div class="form-group">
+               <label for="name">Name</label>
+               <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+               <label for="latinName">Latina Name</label>
+               <input type="text" ngModel name="latinName" class="form-control" id="latinName" placeholder="Latina Name" required>
+            </div>
+            <div class="form-group">
+               <label for="regionOfOrigin">Region Of Origin</label>
+               <input type="text" ngModel name="regionOfOrigin" class="form-control" id="regionOfOrigin" placeholder="Region Of Origin" required>
+            </div>
+            <div class="form-group">
+               <label for="endangered">Endangered</label>
+               <!-- <input type="text" ngModel name="endangered" class="form-control" id="endangered" placeholder="Endangered" required> -->
+               <select ngModel name="endangered" class="form-control" id="endangered" required>
+                <option value="" disabled selected>Select your option</option>
+                <option >Data Deficient (DD)</option>
+                <option>Least Concern (LC)</option>
+                <option>Near Threatened (NT)</option>
+                <option>Vulnerable (VU)</option>
+                <option>Endangered (EN)</option>
+                <option>Critically Endangered (CR)</option>
+                <option>Extinct In The Wild (EW)</option>
+                <option>Extinct (EX)</option>
+                <option>Not Evaluated (NE)</option>
+              </select>
+            </div>
+            <div class="form-group">
+               <label for="imageUrl">Image URL</label>
+               <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+            </div>
+            <div class="modal-footer">
+               <button type="button" id="add-animal-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <!-- jezeli addForm jest invalid to ostanie disabled-->
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+            </div>
+            </form>
+         </div>
+      </div>
+    </div>
+    </div>
+    <div>   
+  </div>
+ 
+  <!-- Edit Modal -->
+  <div class="modal fade" id="updateAnimalModal" tabindex="-1" role="dialog" aria-labelledby="animalEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="updateAnimalModalLabel">Edit Animal {{editAnimal?.name}}</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <!-- odniesienie do całego formularza  -->
+             <form #editForm="ngForm">
+                <div class="form-group">
+                   <label for="name">Name</label>
+                   <!-- jeeli taki pracownik istnieje to jego imie  -->
+                   <input type="text" ngModel="{{editAnimal?.name}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
+                </div>
+                <!-- hidden bo nie chcemy edytowac id ani employeeCode, nie ma możliwości zmiany -->
+                <input type="hidden" ngModel="{{editAnimal?.id}}" name="id" class="form-control" id="id" placeholder="Latina Name">
+                <input type="hidden" ngModel="{{editAnimal?.animalCode}}" name="userCode" class="form-control" id="userCode" placeholder="Latina Name">
+                <div class="form-group">
+                   <label for="latinName">Latina Name</label>
+                   <input type="latinName" ngModel="{{editAnimal?.latinName}}" name="latinName" class="form-control" id="latinName" placeholder="Latina Name">
+                </div>
+                <div class="form-group">
+                   <label for="regionOfOrigin">Region Of Origin</label>
+                   <input type="text" ngModel="{{editAnimal?.regionOfOrigin}}" name="regionOfOrigin" class="form-control" id="regionOfOrigin" placeholder="Region of Origin">
+                </div>
+                <div class="form-group">
+                    <label for="endangered">Endangered</label>
+                    <!-- <input type="text" ngModel name="endangered" class="form-control" id="endangered" placeholder="Endangered" required> -->
+                    <select ngModel name="endangered" class="form-control" id="endangered" required>
+                     <option value="" disabled selected>Select your option</option>
+                     <option >Data Deficient (DD)</option>
+                     <option>Least Concern (LC)</option>
+                     <option>Near Threatened (NT)</option>
+                     <option>Vulnerable (VU)</option>
+                     <option>Endangered (EN)</option>
+                     <option>Critically Endangered (CR)</option>
+                     <option>Extinct In The Wild (EW)</option>
+                     <option>Extinct (EX)</option>
+                     <option>Not Evaluated (NE)</option>
+                   </select>
+                    <!-- <label for="endangered">Endangered</label>
+                   <input type="text" ngModel="{{editAnimal?.endangered}}" name="endangered" class="form-control" id="endangered" name="endangered" placeholder="Endangered"> -->
+                </div>
+                <div class="form-group">
+                   <label for="imageUrl">Image URL</label>
+                   <input type="text" ngModel="{{editAnimal?.imageUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+                </div>
+                <div class="modal-footer">
+                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                <!-- powiazalismy  pracownika z template z pracownikiem z formularza  -->
+                <!-- value jest aktualną reprezentacja danych wejściowych -->
+                   <button (click)="onUpdateAnimal(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                </div>
+             </form>
+          </div>
+       </div>
+    </div>
+  </div>
+  
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteAnimalModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+       <div class="modal-content">
+          <div class="modal-header">
+             <h5 class="modal-title" id="deleteModelLabel">Delete Animal</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+          <div class="modal-body">
+             <!-- wskauje imie ktore zostanie usunięte -->
+             <p>Are you sure you want to delete animal {{deleteAnimal?.name}}?</p>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button (click)="onDeleteAnimal(deleteAnimal!.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+
+  
+  <!-- Notification for no employees -->
+  <!-- jezeli lista employees  klasy app.component.ts jest pusta to wyświetli komunikat -->
+  <div *ngIf="animals?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+  <div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">NO ANIMALS!</h4>
+    <p>No Animals were found.</p>
+  </div>
+  </div>
