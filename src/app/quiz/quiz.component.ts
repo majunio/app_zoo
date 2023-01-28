@@ -3,6 +3,9 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Toast, ToastrComponentlessModule } from 'ngx-toastr';
 import { Question } from '../konstruktor/question';
 import { QuestionService } from '../service/question.service';
+import { ScoreComponent } from '../score/score.component';
+import { DOCUMENT } from '@angular/common';
+import { lastValueFrom } from 'rxjs';
 
 
 @Component({
@@ -11,15 +14,15 @@ import { QuestionService } from '../service/question.service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-  noOfQuestions: number | undefined;
+  noOfQuestions: number = 0;
   questions: Question[] = [];
   static counterGlobal: number = 0;
   static score: number = 0;
-  counter: number;  
+  counter: number = 0;  
   constructor(
     private route: ActivatedRoute,
     private router: Router, private service: QuestionService) {
-      this.counter = QuizComponent.counterGlobal;
+
     }
 
   ngOnInit() 
@@ -28,8 +31,10 @@ export class QuizComponent implements OnInit {
     this.service.getQuestionsByAnimalId(animalId).subscribe(res => {
       this.questions = res;
     });
-    this.noOfQuestions = this.questions.length; 
-   // this.router.navigate()
+    this.counter = QuizComponent.counterGlobal;
+    let noOfQuestions = Object.keys(this.questions).length; 
+
+
   }
 
   // ngOnDestroy()
@@ -52,19 +57,13 @@ export class QuizComponent implements OnInit {
     }else
     {
       QuizComponent.counterGlobal++;
-    }   
-   this.reloadCurrentRoute();
+    }
+    if(this.questions[QuizComponent.counterGlobal].id.toString().length == 0)
+    {
+      this.router.navigate(['/score']);
+    }
+    else{
+      this.reloadCurrentRoute(); 
+    }
   }
-  // checkAnswer2(answer: String, id: number): void{
-  //   if(this.service.getCorrectAnswer(id).toString() == answer)
-  //   {
-  //     QuizComponent.score++;
-  //     QuizComponent.counterGlobal++;
-  //   }else
-  //   {
-  //     QuizComponent.counterGlobal++;
-  //   }  
-  //  this.reloadCurrentRoute();
-  // }
-
 }

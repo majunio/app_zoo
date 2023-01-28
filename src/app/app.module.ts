@@ -16,6 +16,7 @@ import { AnimalComponent } from './animal/animal/animal.component';
 import { HeadComponent } from './head/head.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ScoreComponent } from './score/score.component';
 
 
 
@@ -27,7 +28,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AnimalComponent,
     HeadComponent,
     QuizComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ScoreComponent
   ],
   imports: [
     BrowserModule,

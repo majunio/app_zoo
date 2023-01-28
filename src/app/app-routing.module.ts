@@ -8,6 +8,7 @@ import { HeadComponent } from './head/head.component';
 import { AnimalComponent } from './animal/animal/animal.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ScoreComponent } from './score/score.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'quiz/:id',
     component: QuizComponent
+  },
+  {
+    path: 'score',
+    component: ScoreComponent
   },
   {
     path: '**',
