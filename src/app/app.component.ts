@@ -17,8 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AppComponent  implements OnInit{
   title = " ZOO !";
-  lat = 52.2584547;
-  lng = 21.0206449;
+
 
   public animals: Animal[] = [];
   public editAnimal: Animal | undefined;

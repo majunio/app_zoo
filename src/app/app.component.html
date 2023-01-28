@@ -1,8 +1,24 @@
 
 
+
 <head>
   <title>W3.CSS Template</title>
   <meta charset="UTF-8">
+  <script>
+    // Script to open and close sidebar
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+    }
+     
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+    }
+    
+    // Modal Image Gallery
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -14,24 +30,21 @@
   body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </style>
 </head>
+
+
 <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:10%" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16">
-    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
     <img src="https://us.123rf.com/450wm/doublerdesign/doublerdesign2110/doublerdesign211001133/175720840-.jpg?ver=6" height="100px" width="100px">
   </div>
   <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="#" class="w3-bar-item w3-button">Shirts</a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
-    </div>
-    <a href="#" class="w3-bar-item w3-button">Jackets</a>
+    <a href="#" class="w3-bar-item w3-button">Homepage</a>
+    <button routerLink="animal" class="w3-bar-item w3-button">Our animals</button>
   </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
+  <a href="#contact" class="w3-bar-item w3-button w3-padding">Contact</a> 
   <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
 </nav>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="left:10%">
-    <a class="navbar-brand" style="color:white;" routerLink="">ZOO-Quizz</a>
+    <a class="navbar-brand" style="color:white;" routerLink="">Warsaw ZOO Welcomes</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -55,12 +68,7 @@
   <!-- moge pobrac id przycisku -->
   <div class="container" id="main-container">
 
-    <div id="footer">
-      <p><b>Find us, we are waiting for you! :)</b></p>
-      <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-      </agm-map>
-      </div>
-    </div>
       
  <router-outlet></router-outlet>
+
+ 

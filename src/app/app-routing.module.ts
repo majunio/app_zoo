@@ -37,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: PageNotFoundComponent
+    component: HeadComponent
   }
 ];
 

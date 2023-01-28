@@ -5,7 +5,7 @@ import { Question } from '../konstruktor/question';
 import { QuestionService } from '../service/question.service';
 import { ScoreComponent } from '../score/score.component';
 import { DOCUMENT } from '@angular/common';
-import { lastValueFrom } from 'rxjs';
+import { lastValueFrom, Observable } from 'rxjs';
 
 
 @Component({
@@ -14,15 +14,14 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-  noOfQuestions: number = 0;
+  noOfQuestions: Observable<number> | undefined;
   questions: Question[] = [];
   static counterGlobal: number = 0;
   static score: number = 0;
   counter: number = 0;  
   constructor(
     private route: ActivatedRoute,
-    private router: Router, private service: QuestionService) {
-
+    private router: Router, private service: QuestionService  ) {
     }
 
   ngOnInit() 
@@ -32,9 +31,7 @@ export class QuizComponent implements OnInit {
       this.questions = res;
     });
     this.counter = QuizComponent.counterGlobal;
-    let noOfQuestions = Object.keys(this.questions).length; 
-
-
+    this.noOfQuestions = this.service.getNumberofAnswers(animalId);
   }
 
   // ngOnDestroy()
@@ -58,7 +55,7 @@ export class QuizComponent implements OnInit {
     {
       QuizComponent.counterGlobal++;
     }
-    if(this.questions[QuizComponent.counterGlobal].id.toString().length == 0)
+    if((QuizComponent.counterGlobal+1) == Number(this.noOfQuestions))
     {
       this.router.navigate(['/score']);
     }

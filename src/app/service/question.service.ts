@@ -17,6 +17,10 @@ private apiServerUrl = environment.apiBaseUrl;
     return this.http.get<Question[]>(`${this.apiServerUrl}/question/findforid/${id}`);
   }
 
+  public getNumberofAnswers(id: number): Observable<number>{
+    return this.http.get<number>(`${this.apiServerUrl}/question/count/${id}`)
+  }
+
   public getCorrectAnswer(id: number): Observable<String>
   {
     return this.http.get<String>(`${this.apiServerUrl}/question/answer/${id}`);

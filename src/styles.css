@@ -51,18 +51,6 @@ agm-map {
     position: center;
   }
 
-  #footer {
-    position: fixed;
-    right: 20px;
-    text-align: center;
-    color:#f5f5f5;
-    font: bold;
-    bottom: 50px;
-    background-color:darkslategrey;
-    border-radius: 15px;
-    border-color:aqua;
-    padding: 10px;
-}
 .col-xl-3 {
 
     height: 300px;

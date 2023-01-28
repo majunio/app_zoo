@@ -1,1 +1,145 @@
-<p>head works!</p>
+<!-- !PAGE CONTENT! -->
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+<script>
+function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
+  }
+</script>
+</head>
+<body>
+<div class="w3-main" style="margin-left:160px;background-color: whitesmoke;margin-right:240px;width: 80%;">
+
+    <!-- Header -->
+    <div class="w3-container" style="margin-top:80px" id="showcase">
+      <h1 class="w3-jumbo"><b>Befriend animals</b></h1>
+      <h1 class="w3-xxxlarge w3-text-red"><b>Make yourself know more</b></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+    </div>
+    
+    <!-- Photo grid (modal) -->
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <img src="https://images.pexels.com/photos/247502/pexels-photo-247502.jpeg?cs=srgb&dl=pexels-pixabay-247502.jpg&fm=jpg" style="width:100%" onclick="onClick(this)" alt="Lion">
+        <img src="https://thumbs.dreamstime.com/b/zebra-40789025.jpg" style="width:100%" onclick="onClick(this)" alt="Zebra">
+        <img src="https://optimise2.assets-servd.host/maniacal-finch/production/animals/reticulated-giraffe-01-01.jpg?w=1200&auto=compress%2Cformat&fit=crop&dm=1658951271&s=179de228b20aafcd748a5f0dc8fde776" style="width:100%" onclick="onClick(this)" alt="Giraffe">
+      </div>
+  
+      <div class="w3-half">
+        <img src="https://fajnepodroze.pl/wp-content/uploads/2020/02/antylopy.jpg" style="width:100%" onclick="onClick(this)" alt="Windows for the atrium">
+        <img src="https://bi.im-g.pl/im/b0/3a/18/z25403824AMP,Wietnam--Naukowcy-odnalezli-kanczyla--czyli-tzw--m.jpg" style="width:100%" onclick="onClick(this)" alt="Bedroom and office in one space">
+        <img src="https://tvn24.pl/tvnmeteo/najnowsze/cdn-zdjecie21b5abf6bca95661b22e226a0d7ac5db-szop-pracz-to-pozornie-niegrozne-zwierze-2158387/alternates/FOUR_THREE_1280" style="width:100%" onclick="onClick(this)" alt="Scandinavian design">
+      </div>
+    </div>
+  
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+      <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption"></p>
+      </div>
+    </div>
+  
+    <!-- Services -->
+    <div class="w3-container" id="services" style="margin-top:75px">
+      <h1 class="w3-xxxlarge w3-text-red"><b>Visit our zoo!</b></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+      <p>We are animal keepers whose goal is to make people care more about animals!</p>
+      <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+  
+    <!-- Packages / Pricing Tables -->
+    <div class="w3-container" id="packages" style="margin-top:75px">
+      <h1 class="w3-xxxlarge w3-text-red"><b>Packages.</b></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+      <p>Some text our prices. Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
+    </div>
+  
+    <div class="w3-row-padding">
+      <div class="w3-half w3-margin-bottom">
+        <ul class="w3-ul w3-light-grey w3-center">
+          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">A few chosen quizes and articles.</li>
+          <li class="w3-padding-16">Email support</li>
+          <li class="w3-padding-16">No option to add quizes</li>
+          <li class="w3-padding-16">
+            <h2>Free</h2>
+            <span class="w3-opacity">for as long as you like</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+          
+      <div class="w3-half">
+        <ul class="w3-ul w3-light-grey w3-center">
+          <li class="w3-red w3-xlarge w3-padding-32">Pro</li>
+          <li class="w3-padding-16">All quizes unlocked!</li>
+          <li class="w3-padding-16">Email and/or phone support</li>
+          <li class="w3-padding-16">An option to add your own quiz!</li>
+          <li class="w3-padding-16">
+            <h2>$ 10</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-red w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Contact -->
+    <div class="w3-container" id="contact" style="margin-top:75px">
+      <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+      <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input w3-border" type="text" name="Name" required>
+        </div>
+        <div class="w3-section">
+          <label>Email</label>
+          <input class="w3-input w3-border" type="text" name="Email" required>
+        </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input w3-border" type="text" name="Message" required>
+        </div>
+        <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
+      </form>  
+    </div>
+
+
+
+    <div style="text-align: center;">
+        <p>Or... find us!</p>
+        <div class="map">
+          <agm-map [zoom]="15" [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
+        </div>
+      </div>
+  <!-- End page content -->
+  </div>
+  <div id="footer">
+  <!-- W3.CSS Container -->
+  <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+</div>
+</body>
