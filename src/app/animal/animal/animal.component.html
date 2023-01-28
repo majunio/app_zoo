@@ -1,8 +1,8 @@
 
+<div class="main" style="margin-left:15%;">
 
-
-<div id="element1">
-    <button (click)="onOpenModal('add')" id="addButton">Add Animal </button>
+<div id="element1" style>
+    <button (click)="onOpenModal('add')" id="addButton" class="button-64">Add Animal</button>
 
 
 </div>
@@ -10,7 +10,7 @@
 <div id="element2"> 
        <form class="form-inline my-2 my-lg-0">
     <input type="search" (ngModelChange)="searchAnimals(key.value)" #key="ngModel" ngModel
-        name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search animals..." required>
+        name="key" id="searchName" class="search" placeholder="Search animals..." required>
 </form></div>   
 
 <div class="row">
@@ -50,15 +50,7 @@
   </div>
 </div>
 </div>
-
-<div id="footer">
-<p><b>Find us, we are waiting for you! :)</b></p>
-<agm-map [latitude]="lat" [longitude]="lng">
-<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
 </div>
-</div>
-
 
 <!-- Add Animal Modal -->
 <div class="modal fade" id="addAnimalModal" tabindex="-1" role="dialog" aria-labelledby="addAnimalModalLabel" aria-hidden="true">

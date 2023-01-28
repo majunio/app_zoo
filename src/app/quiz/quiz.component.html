@@ -1,10 +1,8 @@
-<div class="quiz">
+<div class="quiz" style="margin-left:25%;width:50%;margin-top:10%" >
     <p><b>Check your knowledge! Good luck!</b> </p>
-    <ul>
-    <li class="question" style="color:darkblue">
-        <h1>{{questions[counter].question}}</h1>
-        <button class="answer" (click)="checkAnswer(questions[counter].answer1, questions[counter].id)">{{questions[counter].answer1}}</button>
-        <button class="answer" (click)="checkAnswer(questions[counter].answer2, questions[counter].id)">{{questions[counter].answer2}}</button>
-    </li>
-    </ul>
+
+        <h1 class="question" style="color:darkblue"><b>{{questions[counter].question}}</b></h1>
+        <button class="answer" (click)="checkAnswer(questions[counter].answer1, questions[counter].id)"><b>{{questions[counter].answer1}}</b></button>
+        <button class="answer" (click)="checkAnswer(questions[counter].answer2, questions[counter].id)"><b>{{questions[counter].answer2}}</b></button>
+
 </div>
