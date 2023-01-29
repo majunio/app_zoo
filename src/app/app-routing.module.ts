@@ -7,8 +7,8 @@ import { RegisterComponent } from './register/register.component';
 import { HeadComponent } from './head/head.component';
 import { AnimalComponent } from './animal/animal/animal.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ScoreComponent } from './score/score.component';
+import { PaymeComponent } from './payme/payme.component';
 
 const routes: Routes = [
   {
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'payme',
+    component: PaymeComponent
   },
   {
     path: 'animal',

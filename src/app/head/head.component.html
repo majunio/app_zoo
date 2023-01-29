@@ -82,7 +82,7 @@ function onClick(element) {
             <span class="w3-opacity">for as long as you like</span>
           </li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
+            <button disabled="true" class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
           </li>
         </ul>
       </div>
@@ -98,7 +98,7 @@ function onClick(element) {
             <span class="w3-opacity">per month</span>
           </li>
           <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-red w3-padding-large w3-hover-black">Sign Up</button>
+            <button routerLink="payme" class="w3-button w3-red w3-padding-large w3-hover-black">Sign Up</button>
           </li>
         </ul>
       </div>
@@ -108,7 +108,7 @@ function onClick(element) {
     <div class="w3-container" id="contact" style="margin-top:75px">
       <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
       <hr style="width:50px;border:5px solid red" class="w3-round">
-      <p>Do you want us to style your home? Fill out the form and fill me in with the details :) We love meeting new people!</p>
+      <p>Do you want to contact us? Fill out the form and fill me in with the details :) We love meeting new people!</p>
       <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
         <div class="w3-section">
         <input class="w3-input w3-border" type="text" placeholder="Name" name="name" ngModel required #name="ngModel">
