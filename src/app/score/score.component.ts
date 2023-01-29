@@ -11,5 +11,5 @@ export class ScoreComponent {
   score: number = QuizComponent.score;
   max: number = QuizComponent.counterGlobal;
 
-  percentage: number = (this.score/this.max)*100;
+  percentage: number = Math.floor((this.score/this.max)*100);
 }
