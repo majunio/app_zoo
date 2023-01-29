@@ -46,8 +46,8 @@ export class QuizComponent implements OnInit {
         this.router.navigate([currentUrl]);
     });
 }
-  checkAnswer(answer: String, id: number): void{
-    if(this.service.getCorrectAnswer(id).toString() == answer)
+  checkAnswer1(answer: String, id: number): void{
+    if(this.questions[this.counter].correctAnswer == 1)
     {
       QuizComponent.score++;
       QuizComponent.counterGlobal++;
@@ -55,7 +55,25 @@ export class QuizComponent implements OnInit {
     {
       QuizComponent.counterGlobal++;
     }
-    if((QuizComponent.counterGlobal+1) == Number(this.noOfQuestions))
+    if(this.questions[this.questions.length-1] == this.questions[this.counter])
+    {
+      this.router.navigate(['/score']);
+    }
+    else{
+      this.reloadCurrentRoute(); 
+    }
+  }
+
+  checkAnswer2(answer: String, id: number): void{
+    if(this.questions[this.counter].correctAnswer == 2)
+    {
+      QuizComponent.score++;
+      QuizComponent.counterGlobal++;
+    }else
+    {
+      QuizComponent.counterGlobal++;
+    }
+    if(this.questions[this.questions.length-1] == this.questions[this.counter])
     {
       this.router.navigate(['/score']);
     }

@@ -50,6 +50,12 @@
   </div>
 </div>
 </div>
+<div *ngIf="animals?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+   <div class="alert alert-info" role="alert">
+     <h4 class="alert-heading">NO ANIMALS!</h4>
+     <p>No Animals were found.</p>
+   </div>
+   </div>
 </div>
 
 <!-- Add Animal Modal -->
@@ -197,9 +203,3 @@
   
   <!-- Notification for no employees -->
   <!-- jezeli lista employees  klasy app.component.ts jest pusta to wyświetli komunikat -->
-  <div *ngIf="animals?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
-  <div class="alert alert-info" role="alert">
-    <h4 class="alert-heading">NO ANIMALS!</h4>
-    <p>No Animals were found.</p>
-  </div>
-  </div>

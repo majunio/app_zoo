@@ -7,7 +7,8 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { QuizComponent } from 'src/app/quiz/quiz.component';
-
+import './../../../assets/smtp.js';
+declare let Email : any;
 
 
 @Component({

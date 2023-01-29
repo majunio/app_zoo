@@ -2,8 +2,8 @@
     <p><b>Check your knowledge! Good luck!</b> </p>
 
         <h1 class="question" id="question" style="color:darkblue"><b>{{questions[counter].question}}</b></h1>
-        <button class="answer" (click)="checkAnswer(questions[counter].answer1, questions[counter].id)"><b>{{questions[counter].answer1}}</b></button>
-        <button class="answer" (click)="checkAnswer(questions[counter].answer2, questions[counter].id)"><b>{{questions[counter].answer2}}</b></button>
+        <button class="answer" (click)="checkAnswer1(questions[counter].answer1, questions[counter].id)"><b>{{questions[counter].answer1}}</b></button>
+        <button class="answer" (click)="checkAnswer2(questions[counter].answer2, questions[counter].id)"><b>{{questions[counter].answer2}}</b></button>
 
 </div>
 
